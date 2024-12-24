@@ -23,8 +23,33 @@ function deleteCookie(name) {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
 }
 
+// Utility function: returns true if the user has cookies enabled
+function areCookiesEnabled() {
+    // Try setting a test cookie
+    document.cookie = "testcookie=1; path=/";
+
+    // Check if the cookie is accessible
+    const cookiesEnabled = document.cookie.indexOf("testcookie=") !== -1;
+
+    // Delete the test cookie
+    deleteCookie("testcookie");
+
+    return cookiesEnabled;
+}
+
 
 /* ---------------------------------------------------------------------------------------- */
 
+// Check if someone is messing with the cookies
+function cookieTamperCheck() {
+    if ((getCookie("part") <= 0) || (getCookie("part") > 5)) {
+        deleteCookie("part")
+    }
+}
 
+/** Returns true if the person is on the right part of the treasure hunt */
+function checkCookies(partNumber) {
+    cookieTamperCheck();
+    return (getCookie("part") == partNumber)
+}
 

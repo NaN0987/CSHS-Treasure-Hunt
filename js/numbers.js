@@ -11,20 +11,35 @@ class NumberParticle {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.value = Math.floor(Math.random() * 10); // Random number between 0 and 9
+    this.value = Math.floor(Math.random() * 2); // Random number between 0 and 9
     this.alpha = 1; // Initial opacity
     this.size = Math.random() * 30 + 10; // Random size
-    this.fadeSpeed = Math.random() * 0.01 + 0.005; // Random fade-out speed
+    this.fadeSpeed = Math.random() * 1; // Random fade-out speed
+    if (Math.random() > .5 ){
+      this.positive = 1;
+    }
+    else{
+      this.positive = 0;
+    }
   }
 
   draw() {
-    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+    ctx.fillStyle = `rgba(0, 255, 0, ${this.alpha})`;
     ctx.font = `${this.size}px Arial`;
     ctx.fillText(this.value, this.x, this.y);
   }
 
   update() {
     this.alpha -= this.fadeSpeed;
+    this.size += .1
+    if (this.positive === 1){
+      this.x += 0 + 1 * .5 ;
+    }
+    else{
+      this.x += 0 + 1 * -.5 ;
+
+    }
+    this.y += 2;
     if (this.alpha <= 0) {
       this.reset();
     }
@@ -32,11 +47,11 @@ class NumberParticle {
 
   reset() {
     this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.value = Math.floor(Math.random() * 10);
+    this.y = canvas.height / 100;
+    this.value = Math.floor(Math.random() * 2);
     this.alpha = 1;
     this.size = Math.random() * 30 + 10;
-    this.fadeSpeed = Math.random() * 0.01 + 0.005;
+    this.fadeSpeed = Math.random() * 0.01 ;
   }
 }
 

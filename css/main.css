@@ -1,15 +1,40 @@
 
 body {
-    font-family: sans-serif;
-    margin: 0;
-    overflow: hidden;
-    background: black;
+  margin: 0;
+  overflow: hidden;
+  background: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    text-align: center;
+  text-align: center;
+  font-family: 'Cascadia Code', monospace;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
 }
 
 canvas {
   display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
+
+.content {
+  display: none;
+}
+
+#gifContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Hidden by default */
+  opacity: 50%;
+}
+
+#gifContainer img {
+  max-width: 200px; /* Adjust size as needed */
+  height: auto;
+}
+

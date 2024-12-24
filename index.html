@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" style="color-scheme: dark;">
+
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +11,47 @@
     <script src="js/cookies.js"></script>
 </head>
 <body>
-    <h1>Hello World UwU</h1>
+    <h1>CSHS Treasure Hunt</h1>
+
+    <noscript>
+        <h2 style="size: 3rem;">Please enable Javascript & Cookies to use our website.</h2>
+        <p style="text-align: center; size: 1rem;">It's really cool I promise.</p>
+    </noscript>
+
+    <div id="no-cookies" class="content">
+        <h2 style="size: 3rem;">Please enable Cookies to use our website.</h2>
+    </div>
+
+    <div id="stopwall" class="content">
+        <h2 style="size: 3rem;">Woah There!</h2>
+        <p style="text-align: center; size: 1rem;">You need to follow the QR codes in order.</p>
+    </div>
+
+    <!-- Main page content -->
+    <div id="main" class="content">
+
+    </div>
+
     <canvas id="numberCanvas"></canvas>
+
     <script src="js/numbers.js"></script>
+    
+
+    <script src="js/hacker.js"></script>
+
+    <script>
+        
+        if (!areCookiesEnabled()){
+            document.getElementById("no-cookies").style.cssText += "display: block;"
+            document.getElementById("main").remove()
+        }
+        else if (checkCookies(1)) {
+            document.getElementById("main").style.cssText += "display: block;"
+        }
+        else {
+            document.getElementById("stopwall").style.cssText += "display: block;"
+            document.getElementById("main").remove()
+        }
+    </script>
 </body>
 </html>
