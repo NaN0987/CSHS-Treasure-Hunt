@@ -5,7 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const numbers = [];
-const maxNumbers = 100;
+const maxNumbers = 40;
 
 class NumberParticle {
   constructor(x, y) {
@@ -14,7 +14,7 @@ class NumberParticle {
     this.value = Math.floor(Math.random() * 2); // Random number between 0 and 9
     this.alpha = 1; // Initial opacity
     this.size = Math.random() * 30 + 10; // Random size
-    this.fadeSpeed = Math.random() * 1; // Random fade-out speed
+    this.fadeSpeed = Math.random() * 0.01; // Random fade-out speed
     if (Math.random() > .5 ){
       this.positive = 1;
     }
@@ -33,14 +33,14 @@ class NumberParticle {
     this.alpha -= this.fadeSpeed;
     this.size += .1
     if (this.positive === 1){
-      this.x += 0 + 1 * .5 ;
+      this.x += .25 ;
     }
     else{
-      this.x += 0 + 1 * -.5 ;
+      this.x += -.25 ;
 
     }
     this.y += 2;
-    if (this.alpha <= 0) {
+    if ((this.alpha <= 0) || (this.y > canvas.height + this.size)) {
       this.reset();
     }
   }

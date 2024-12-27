@@ -12,33 +12,30 @@
     <script src="js/cookies.js"></script>
 </head>
 <body>
+    <canvas id="numberCanvas"></canvas>
+    <script src="js/numbers.js"></script>
+    <script src="js/hacker.js"></script>
+
     <h1>CSHS Treasure Hunt</h1>
 
     <noscript>
-        <h2 style="size: 3rem;">Please enable Javascript & Cookies to use our website.</h2>
-        <p style="text-align: center; size: 1rem;">It's really cool I promise.</p>
+        <h2 class="errorMessage">Please enable Javascript &amp; Cookies to use our website.</h2>
+        <p class="errorMessage">It's really cool I promise.</p>
     </noscript>
 
     <div id="no-cookies" class="content">
-        <h2 style="size: 3rem;">Please enable Cookies to use our website.</h2>
+        <h2 class="errorMessage">Please enable Cookies to use our website.</h2>
     </div>
 
     <div id="stopwall" class="content">
-        <h2 style="size: 3rem;">Woah There!</h2>
-        <p style="text-align: center; size: 1rem;">You need to follow the QR codes in order.</p>
+        <h2 class="errorMessage">Woah There!</h2>
+        <p class="errorMessage">You need to follow the QR codes in order.</p>
     </div>
 
     <!-- Main page content -->
     <div id="main" class="content">
 
     </div>
-
-    <canvas id="numberCanvas"></canvas>
-
-    <script src="js/numbers.js"></script>
-    
-
-    <script src="js/hacker.js"></script>
 
     <script>
         

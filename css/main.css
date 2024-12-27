@@ -5,10 +5,15 @@ body {
   background: black;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   text-align: center;
   font-family: 'Cascadia Code', monospace;
-  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
+  background-color: rgba(0, 0, 0, 0.6); /* Make text stand out in front of background */
+}
+
+.transparent-highlight {
+  background-color: rgba(0, 0, 0, 0.6); 
+  border-radius: 10px;
 }
 
 canvas {
@@ -18,23 +23,35 @@ canvas {
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .content {
   display: none;
 }
 
+h2.errorMessage {
+  font-size: 2rem;
+  margin-top: 20vh;
+}
+
+p.errorMessage {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
 #gifContainer {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none; /* Hidden by default */
-  opacity: 50%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 80%;
 }
 
 #gifContainer img {
   max-width: 200px; /* Adjust size as needed */
-  height: auto;
 }
 
