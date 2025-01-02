@@ -50,6 +50,17 @@ function cookieTamperCheck() {
 /** Returns true if the person is on the right part of the treasure hunt */
 function checkCookies(partNumber) {
     cookieTamperCheck();
-    return (getCookie("part") == partNumber)
+    return (getCookie("part") - 1 >= partNumber)
 }
 
+/** Function to handle copying text to the clipboard */
+function copyToClipboard(elementId) {
+     // Get the text field
+    var textElement = document.getElementById(elementId);
+    
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(textElement.innerText);
+    
+    // Alert the copied text
+    console.log("Copied the text to clipboard: " + textElement.value);
+}

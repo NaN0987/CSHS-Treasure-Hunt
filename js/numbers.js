@@ -11,7 +11,7 @@ class NumberParticle {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.value = Math.floor(Math.random() * 2); // Random number between 0 and 9
+    this.value = Math.floor(Math.random() * 2); // Random number between 0 and 1
     this.alpha = 1; // Initial opacity
     this.size = Math.random() * 30 + 10; // Random size
     this.fadeSpeed = Math.random() * 0.01; // Random fade-out speed
