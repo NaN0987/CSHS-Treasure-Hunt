@@ -42,15 +42,20 @@ function areCookiesEnabled() {
 
 // Check if someone is messing with the cookies
 function cookieTamperCheck() {
-    if ((getCookie("part") <= 0) || (getCookie("part") > 5)) {
+    if ((getCookie("part") < 0) || (getCookie("part") > 5)) {
         deleteCookie("part")
     }
 }
 
 /** Returns true if the person is on the right part of the treasure hunt */
-function checkCookies(partNumber) {
+function checkCookies(currentNumber) {
     cookieTamperCheck();
-    return (getCookie("part") - 1 >= partNumber)
+    partCookie = getCookie("part")
+
+    if (partCookie != null) {
+        return (partCookie >= currentNumber - 1)
+    }
+    return false
 }
 
 /** Function to handle copying text to the clipboard */
