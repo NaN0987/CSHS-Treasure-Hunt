@@ -51,7 +51,7 @@
         else if (checkCookies(1)) {
             document.getElementById("main").style.cssText += "display: block;"
             if (getCookie("StartTime") === null) {
-                setCookie("StartTime", new Date())
+                setCookie("StartTime", new Date(), 999)
             }
         }
         else {

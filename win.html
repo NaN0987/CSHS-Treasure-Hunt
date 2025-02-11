@@ -35,8 +35,7 @@
     <!-- Main page content -->
     <div id="main" class="content">
         <h1 style="font-size: 15vw; margin-top: 9vh;">You Win!</h1>
-        <p style="margin-top: 5vh;"> Congratulations for finishing our treasure hunt! Show this screen to Mr. McBride in the school store
-            in order to claim your reward. </p>
+        <p style="margin-top: 5vh;"> Congratulations for finishing our treasure hunt! Show this screen to an adult in the school store to claim your reward. </p>
 
         <div class="center">
             <div class="code" id="winConfirmation"></div>
@@ -53,7 +52,7 @@
         else if (checkCookies(4)) {
             document.getElementById("main").style.cssText += "display: block;"
             if (getCookie("EndTime") === null) {
-                setCookie("EndTime", new Date())
+                setCookie("EndTime", new Date(), 999)
             }
             document.getElementById("winConfirmation").innerText = "Start Time: " + getCookie("StartTime") 
             + "\n\nEnd Time: " + getCookie("EndTime")
@@ -62,7 +61,7 @@
             // document.getElementById("stopwall").style.cssText += "display: block;"
             document.getElementById("main").remove()
             document.body.style = "opacity: 0%; background-color: white"
-            window.location.href = "https://www.prepsportswear.com/school/us/michigan/commerce/walled-lake-northern-high-school-knights?schoolid=1001303"
+            window.location.href = "https://northern.wlcsd.org/"
         }
     </script>
 </body>
