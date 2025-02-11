@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: dark;">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <title>CSHS Treasure Hunt</title>
+
+    <script src="js/cookies.js"></script>
+</head>
+<body>
+    <canvas id="numberCanvas"></canvas>
+    <script src="js/numbers.js"></script>
+    <script src="js/hacker.js"></script>
+
+    <h1>CSHS Treasure Hunt</h1>
+
+    <noscript>
+        <h2 class="errorMessage">Please enable Javascript &amp; Cookies to use our website.</h2>
+        <p class="errorMessage">It's really cool I promise.</p>
+    </noscript>
+
+    <div id="no-cookies" class="content">
+        <h2 class="errorMessage">Please enable Cookies to use our website.</h2>
+    </div>
+
+    <div id="stopwall" class="content">
+        <h2 class="errorMessage">Woah There!</h2>
+        <p class="errorMessage">You need to follow the QR codes in order.</p>
+    </div>
+
+    <!-- Main page content -->
+    <div id="main" class="content">
+        <h1 style="font-size: 15vw; margin-top: 9vh;">You Win!</h1>
+        <p style="margin-top: 5vh;"> Congratulations for finishing our treasure hunt! Show this screen to Mr. McBride in the school store
+            in order to claim your reward. </p>
+
+        <div class="center">
+            <div class="code" id="winConfirmation"></div>
+        </div>
+        <p style="margin-top: 2vh;"> If you enjoy making cool tech projects like this website, consider joining the Computer Science Honor Society! </p>
+    </div>
+
+    <script>
+        
+        if (!areCookiesEnabled()){
+            document.getElementById("no-cookies").style.cssText += "display: block;"
+            document.getElementById("main").remove()
+        }
+        else if (checkCookies(4)) {
+            document.getElementById("main").style.cssText += "display: block;"
+            if (getCookie("EndTime") === null) {
+                setCookie("EndTime", new Date())
+            }
+            document.getElementById("winConfirmation").innerText = "Start Time: " + getCookie("StartTime") 
+            + "\n\nEnd Time: " + getCookie("EndTime")
+        }
+        else {
+            // document.getElementById("stopwall").style.cssText += "display: block;"
+            document.getElementById("main").remove()
+            document.body.style = "opacity: 0%; background-color: white"
+            window.location.href = "https://www.prepsportswear.com/school/us/michigan/commerce/walled-lake-northern-high-school-knights?schoolid=1001303"
+        }
+    </script>
+</body>
+</html>

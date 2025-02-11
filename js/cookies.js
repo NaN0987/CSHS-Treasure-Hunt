@@ -53,6 +53,9 @@ function checkCookies(currentNumber) {
     partCookie = getCookie("part")
 
     if (partCookie != null) {
+        if (partCookie == currentNumber - 1) {
+            setCookie("part", currentNumber, 999)
+        }
         return (partCookie >= currentNumber - 1)
     }
     return false

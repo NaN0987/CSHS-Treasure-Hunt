@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: dark;">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <title>CSHS Treasure Hunt</title>
+
+    <script src="js/cookies.js"></script>
+</head>
+<body>
+    <canvas id="numberCanvas"></canvas>
+    <script src="js/numbersRainbow.js"></script>
+    <script src="js/hackerWini.js"></script>
+
+    <h1>CSHS Treasure Hunt</h1>
+
+    <noscript>
+        <h2 class="errorMessage">Please enable Javascript &amp; Cookies to use our website.</h2>
+        <p class="errorMessage">It's really cool I promise.</p>
+    </noscript>
+
+    <div id="no-cookies" class="content">
+        <h2 class="errorMessage">Please enable Cookies to use our website.</h2>
+    </div>
+
+    <div id="stopwall" class="content">
+        <h2 class="errorMessage">Woah There!</h2>
+        <p class="errorMessage">You need to follow the QR codes in order.</p>
+    </div>
+
+    <!-- Main page content -->
+     <style>
+        .button{
+            font-size: clamp(2rem, 10vw, 6rem); /* Responsive size */
+        }
+     </style>
+
+    <div id="main" class="content">
+        
+        <h1 style="font-size: 15vw; margin-top: 14vh;">Good Job!</h1>
+        <p> Connor Hellebuyck graduated from Walled Lake Northern in 2011 and went on to become the 
+            Goalie for the Winnipeg Jets.
+        </p>
+        
+        
+        <div class="center">
+            <a href="winnicipher.html">
+                <button>
+                    Continue
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        
+        if (!areCookiesEnabled()){
+            document.getElementById("no-cookies").style.cssText += "display: block;"
+            document.getElementById("main").remove()
+        }
+        else if (checkCookies(2)) {
+            document.getElementById("main").style.cssText += "display: block;"
+        }
+        else {
+            // document.getElementById("stopwall").style.cssText += "display: block;"
+            document.getElementById("main").remove()
+            document.body.style = "opacity: 0%; background-color: white"
+            window.location.href = "https://en.wikipedia.org/wiki/Connor_Hellebuyck";
+        }
+    </script>
+</body>
+</html>

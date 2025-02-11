@@ -5,7 +5,7 @@ gifContainer.style.pointerEvents = "none"; // Prevents interference with user in
 gifContainer.id = "gifContainer"
 
 const maxGifs = 5; // Maximum number of GIFs to display at once
-const gifDuration = 3000; // Duration a GIF stays visible (in ms)
+const gifDuration = 7000; // Duration a GIF stays visible (in ms)
 const gifDelay = 100; // Delay between each new GIF appearing (in ms)
 const gifs = [];
 

@@ -5,7 +5,7 @@ gifContainer.style.pointerEvents = "none"; // Prevents interference with user in
 gifContainer.id = "gifContainer"
 
 const maxGifs = 5; // Maximum number of GIFs to display at once
-const gifDuration = 3000; // Duration a GIF stays visible (in ms)
+const gifDuration = 8000; // Duration a GIF stays visible (in ms)
 const gifDelay = 100; // Delay between each new GIF appearing (in ms)
 const gifs = [];
 
@@ -41,7 +41,7 @@ class GifParticle {
   }
 
   hide() {
-    this.opacity = Math.max(0, this.opacity - 0.002); // Gradually reduce opacity
+    this.opacity = Math.max(0, this.opacity - 0.005); // Gradually reduce opacity
     this.element.style.opacity = `${this.opacity}`;
     if (this.opacity <= 0) {
       this.element.remove(); // Remove the element from DOM when fully faded
@@ -81,15 +81,6 @@ function showGifs() {
       }
     }, i * gifDelay);
   }
-
-  let greenDownloadButton = new GifParticle();
-  greenDownloadButton.element.style.width = `${20}vw`;
-  greenDownloadButton.element.src = `images/greenDownload.png`;
-  greenDownloadButton.show();
-
-  setTimeout(() => {
-    greenDownloadButton.endThyself();
-  }, gifDuration + 1500);
 }
 
 // Start the GIF cycle
